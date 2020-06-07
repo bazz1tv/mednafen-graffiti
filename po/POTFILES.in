@@ -13,7 +13,6 @@ src/pce/pcecd.cpp
 src/pce/pce.cpp
 src/pce/vce.cpp
 src/pce/tsushin.cpp
-src/pce/subhw.cpp
 src/hw_sound/ym2413/emu2413.cpp
 src/hw_sound/gb_apu/Gb_Oscs.cpp
 src/hw_sound/gb_apu/Gb_Apu.cpp
@@ -370,7 +369,6 @@ src/lynx/ram.cpp
 src/lynx/susie.cpp
 src/cdrom/scsicd.cpp
 src/cdrom/CDAccess.cpp
-src/cdrom/audioreader_opus.cpp
 src/cdrom/cdromif.cpp
 src/cdrom/crc32.cpp
 src/cdrom/recover-raw.cpp
@@ -380,7 +378,6 @@ src/cdrom/CDUtility.cpp
 src/cdrom/lec.cpp
 src/cdrom/CDAccess_CCD.cpp
 src/cdrom/l-ec.cpp
-src/cdrom/audioreader.cpp
 src/nes/fds.cpp
 src/nes/nsf.cpp
 src/nes/input/hypershot.cpp

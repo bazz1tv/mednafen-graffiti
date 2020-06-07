@@ -14,7 +14,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: deps
-      run: sudo apt-get update && sudo apt-get install mednafen
+      run: sudo apt-get update && sudo apt-get install build-essential automake pkg-config libasound2-dev libcdio-dev libsdl1.2-dev libsdl-net1.2-dev libsndfile1-dev zlib1g-dev
+    - name: automake
+      run: aclocal -I .; autoconf; automake --add-missing -c
     - name: configure
       run: ./configure
     - name: make
