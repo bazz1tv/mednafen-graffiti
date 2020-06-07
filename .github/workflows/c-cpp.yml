@@ -16,6 +16,6 @@ jobs:
     - name: deps
       run: sudo apt-get update && sudo apt-get install build-essential automake autoconf m4 perl pkg-config libasound2-dev libcdio-dev libsdl1.2-dev libsdl-net1.2-dev libsndfile1-dev zlib1g-dev
     - name: configure
-      run: ./configure
+      run: touch * && ./configure
     - name: make
       run: make
