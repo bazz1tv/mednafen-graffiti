@@ -2,3 +2,14 @@
 .deps/
 *.a
 .dirstamp
+Makefile
+autom4te.cache/
+config.log
+config.status
+include/config.h
+include/stamp-h1
+libtool
+po/Makefile.in
+po/POTFILES
+src/hw_cpu/gen68k
+src/mednafen
