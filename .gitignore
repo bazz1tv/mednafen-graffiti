@@ -26,3 +26,6 @@ depcomp
 install-sh
 missing
 stamp-h1
+
+po/*.gmo
+po/remove-potcdate.sed
