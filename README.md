@@ -30,9 +30,10 @@ Make sure that both you and your buddy have Graffiti, and an identical copy of t
 Building
 ========
 
-Build Graffiti the same way as you would normally build mednafen. If you're unsure, it's probably with the following commands from the project directory:
+When building directly from git, run the following commands from the project directory:
 
 ```
+aclocal -I .; autoconf; automake --add-missing -c
 ./configure
 make
 sudo make install
