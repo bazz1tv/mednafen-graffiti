@@ -1,45 +1,39 @@
-------------------
-Compilation Notes:
-------------------
-	gcc or LLVM clang is required for compiling Mednafen.  Intel's C compiler may work, but is untested.
-	Probably doesn't need to be said, but the compilers optionally specified via CC and CXX *must* be the same version.
+Graffiti Netplay Enhancement
+============================
 
-	clang: 3.4.0 or newer is required.
+Graffiti allows you to draw on the surface of your game. It can be used locally
+or during netplay. It is intended to be a fun addition to the netplay experience.
 
-	gcc: 4.7(4.7.4+), 4.8(4.8.4+), or 4.9(4.9.2+) or newer is required.
-
-	Reportedly, passing:	--build=x86_64-apple-darwin`uname -r`
-	to the configure script is necessary for building on Mac OS X to work properly.
+![graffiti gameplay example](./pics/mednafen-graffiti1.png)
 
 
 
----------------------------------------------
-Some notes(and reminders) on the source code:
----------------------------------------------
-	The following system headers are included by including "mednafen.h", and always will be, so don't include them manually.
-		assert.h	(included in "types.h")
-		inttypes.h	(included in "types.h")
-		stdlib.h
-		stdio.h
-		string.h
+Try it out
+==========
 
-	Avoid %= in save state load variable sanitizing code unless the variable is unsigned.
+First you'll need a binary of this software. That likely means you'll have to build it yourself. See the **Building** section below.
 
-	memcpy()/memmove()/etc. with NULL pointers is undefined and bad even when length is 0.
+Once you've opened a ROM up (eg. `mednafen mario.smc`), you can immediately begin testing the graffiti feature! Now, it's most fun with a friend online, but you can run it locally too.
 
-	Careful to not do something like: void somefunc(int something[16]); [...] sizeof(something)
+### Testing locally
 
-	Try to avoid writing new code that violates strict overflow(even though we compile with -fwrapv), especially be mindful
-	of stuff like what's described at http://kqueue.org/blog/2013/09/17/cltq/
+First, press 't' to get a console prompt, then type `/g on` to enable graffiti mode. Now, when your mouse is over the game screen, you see a black square. You can now do the following:
 
-	Order of operations != Operator precedence.  Remember sequence point rules, and don't do stuff like:
-		value = FuncWithSideEffects() | (FuncWithSideEffects() << 8);	// BAD BAD
-	See: http://en.cppreference.com/w/cpp/language/eval_order
+- Left-Click and Drag: Draw
+- Mouse Wheel: Change brush size
+- Right-Click and Drag: Erase
 
-	Avoid writing new code that shifts left signed integers or negative values to avoid technically undefined behavior; use
-	ugly typecasting, or multiply by powers of 2 instead(remotely modern compilers can optimize it to a shift internally).
+### Playing Online
 
-	Vanishing temporaries: https://gcc.gnu.org/onlinedocs/gcc/Temporaries.html#Temporaries
+Make sure that both you and your buddy have Graffiti, and an identical copy of the game you're gonna play. Once you open the rom up, press 't' to get a console prompt, then type `/connect` to connect to mednafen's server. Once connected, the graffiti feature will automatically become activated. Once your friend joins the game, you can use 't' to chat with each other, and also have fun playing with graffiti together!
 
-	Do not place a period before the field width for "s" and "[" conversion specifiers in *scanf() format strings; perhaps a bad
-	habit picked up long ago from working with a buggy libc or trio?
+Building
+========
+
+Build Graffiti the same way as you would normally build mednafen. If you're unsure, it's probably with the following commands from the project directory:
+
+```
+./configure
+make
+sudo make install
+```
