@@ -16,6 +16,7 @@ src/mednafen
 
 /Makefile.in
 /src/*/Makefile.in
+/src/Makefile.in
 
 aclocal.m4
 config.cache
