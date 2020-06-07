@@ -3,7 +3,7 @@
 *.a
 .dirstamp
 Makefile
-autom4te.cache/
+autom4te.cache
 config.log
 config.status
 include/config.h
@@ -13,3 +13,14 @@ po/Makefile.in
 po/POTFILES
 src/hw_cpu/gen68k
 src/mednafen
+
+/Makefile.in
+
+aclocal.m4
+config.cache
+configure
+compile
+depcomp
+install-sh
+missing
+stamp-h1
