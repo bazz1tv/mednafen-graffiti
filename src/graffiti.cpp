@@ -1,4 +1,5 @@
 #include "graffiti.h"
+#include <math.h>
 
 MDFN_Surface * Graffiti::Color::s {nullptr};
 
@@ -25,8 +26,9 @@ Graffiti::Graffiti(MDFN_Surface *new_surface) :
   //MDFN_printf("HELHLEHLE");
   line_tool[static_cast<int>(LineToolType::line)] = {};
   line_tool[static_cast<int>(LineToolType::eraser)] = {
-    Default_width * Eraser_scale,
-    Default_height * Eraser_scale};
+    (wh_t)(Default_width * Eraser_scale),
+    (wh_t)(Default_height * Eraser_scale)
+  };
 }
 
 ///////////////
