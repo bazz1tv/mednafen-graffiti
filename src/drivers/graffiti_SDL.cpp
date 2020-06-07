@@ -1,4 +1,5 @@
 #include "graffiti_SDL.h"
+#include <math.h>
 
 Graffiti_SDL::Graffiti_SDL(MDFN_Surface *new_canvas) :Graffiti(new_canvas)
 {
@@ -97,7 +98,9 @@ void Graffiti_SDL::Input_Event(const SDL_Event& event)
         ti = LineToolType::line;
         ltool = &line_tool[static_cast<int>(ti)];
         ltool->color = {
-          (rand() % 7 + 1) * 32, (rand() % 7 + 1) * 32, (rand() % 7 + 1) * 32
+          (uint8_t) ((rand() % 7 + 1) * 32),
+          (uint8_t) ((rand() % 7 + 1) * 32),
+          (uint8_t) ((rand() % 7 + 1) * 32)
         };
         ShowCursor(false);
         //SDL_MDFN_SetCursor(syscursor);
@@ -239,7 +242,7 @@ void Graffiti_SDL::CreateCursor(LineToolType ltt, bool set)
     }
 
     CursorSpec_SDL sc = { &tool_cursor[ti], &data[0], &mask[0], mouse_w, h,
-      floor(0.5 + (w/2)), floor(0.5 + (h/2)), set };
+      (int)floor(0.5 + (w/2)), (int)floor(0.5 + (h/2)), set };
     SDL_MDFN_CreateCursor(&sc);
   }
   else if (ltt == LineToolType::eraser)
@@ -290,7 +293,7 @@ void Graffiti_SDL::CreateCursor(LineToolType ltt, bool set)
       data[y*w8 + (w8-1)] |= dl;
     }
     CursorSpec_SDL sc = { &tool_cursor[ti], &data[0], &mask[0], mouse_w, h,
-      floor(0.5 + (w/2)), floor(0.5 + (h/2)), set };
+      (int)floor(0.5 + (w/2)), (int)floor(0.5 + (h/2)), set };
     SDL_MDFN_CreateCursor(&sc);
   }
 }
