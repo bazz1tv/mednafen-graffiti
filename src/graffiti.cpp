@@ -39,12 +39,12 @@ bool Graffiti::ParseConsoleCommand(const char *arg)
 
   if (!strcmp("", arg))
     ToggleActivate();
-  else if (!strcmp("enable", sc) || !strcmp("en", sc))
+  else if (!strcmp("enable", sc) || !strcmp("on", sc))
   {
     Enable();
     Activate();
   }
-  else if (!strcmp("disable", sc) || !strcmp("dis", sc))
+  else if (!strcmp("disable", sc) || !strcmp("off", sc))
   {
     Deactivate();
     return false;
